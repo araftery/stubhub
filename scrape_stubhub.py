@@ -34,7 +34,8 @@ if __name__ == '__main__':
             with gzip.open('snapshot_{}_{}_{}_{}_{}.json'.format(now.month, now.day, now.year, now.hour, now.minute), 'wt') as outfile:
                 json.dump(data, outfile)
             break
-        except:
+        except Exception as e:
+            raise e
             times += 1
             continue
     else:
